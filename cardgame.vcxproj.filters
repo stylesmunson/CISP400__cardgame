@@ -18,24 +18,30 @@
     <ClCompile Include="code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="code\Monster.cpp">
+    <ClCompile Include="code\CardMonster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="code\Card.cpp">
+    <ClCompile Include="code\CardBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\spells.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\CardSpell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="code\Card.h">
+    <ClInclude Include="code\CardBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="code\main.h">
+    <ClInclude Include="code\spells.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="code\Monster.h">
+    <ClInclude Include="code\CardMonster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="code\Spell.h">
+    <ClInclude Include="code\CardSpell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,12 +1,17 @@
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Monster.h"
-#include "Spell.h"
-#include "cardproject.h"
+#include "CardBase.h"
+#include "CardMonster.h"
+#include "CardSpell.h"
+#include "spells.h"
+using namespace sf;
 using namespace std;
 
 int main()
 {
-	
+
+
+	return 0;
 }
