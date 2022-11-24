@@ -1,0 +1,22 @@
+﻿  main.cpp
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\main.cpp(22,84): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\main.cpp(22,49): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\main.cpp(23,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\main.cpp(23,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  cardgame.vcxproj -> C:\Users\Kezai\source\repos\stylesmunson\cardgame\Debug\cardgame.exe

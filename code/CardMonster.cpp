@@ -1,28 +1,39 @@
 #include "CardMonster.h"
 
-void CardMonster::set_power(int _power)
+CardMonster::CardMonster(string _title, int _power, int _defense)
 {
-	this->power = _power;
+	m_cardTitleStr = _title;
+	m_PWRval = _power;
+	m_DEFval = _defense;
+
 }
 
-void CardMonster::set_defense(int _def)
+void CardMonster::set_power(int _power)
 {
-	this->defense = _def;
+	m_PWRval = _power;
+}
+
+void CardMonster::set_defense(int _defense)
+{
+	m_DEFval = _defense;
 }
 
 int CardMonster::get_defense() const
 {
-	return defense;
+	return m_DEFval;
 }
 
 int CardMonster::get_power() const
 {
-	return power;
+	return m_PWRval;
 }
+
+
+
 
 void CardMonster::death_check()
 {
-	if (defense <= 0)
+	if (m_DEFval <= 0)
 	{
 		/*destroy monster */
 	}
