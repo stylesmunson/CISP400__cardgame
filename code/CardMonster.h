@@ -4,7 +4,7 @@
 class CardMonster : public CardBase
 {
 public:
-	CardMonster(string _title, int _power, int _defense, string _description, Font& _fontTitle, Font& _fontData, Font& _fontDescription);
+	CardMonster(string _title, int _power, int _defense, string _description, Texture _texture, Font& _fontTitle, Font& _fontData, Font& _fontDescription);
 	
 	int get_power() const;
 	int get_defense() const;

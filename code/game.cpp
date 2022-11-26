@@ -13,7 +13,9 @@ using namespace std;
 int main()
 {
 	/********** [SETUP] **********/
-	enum class GameState { MAINMENU, PLAYER1TURN, PLAYER2TURN, PAUSE };
+	enum class GameState {	MAINMENU, PAUSE,
+							PLAYER1_MONSTERPHASE, PLAYER1_ITEMPHASE,
+							PLAYER2_MONSTERPHASE, PLAYER2_ITEMPHASE };
 	GameState gamestate = GameState::MAINMENU;
 
 	Font fontCardTitle;
@@ -37,17 +39,21 @@ int main()
 		return EXIT_FAILURE;
 	}
 
+	Texture cardTextureMonTruck;
+	if (!cardTextureMonTruck.loadFromFile("res/graphics/monstertruck1.png"))
+		return EXIT_FAILURE;
+
 	Vector2f mouseWorldPos;
 
 	/********** [DISPLAY] **********/
 	Vector2f resolution(VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height);
-	RenderWindow window(VideoMode(resolution.x, resolution.y), "CARD GAME TITLE", Style::Fullscreen);
+	RenderWindow window(VideoMode(resolution.x, resolution.y), "CARD GAME TITLE", Style::Default);
 	View mainView(FloatRect(0, 0, resolution.x, resolution.y));
 	View HUDview(FloatRect(0, 0, resolution.x, resolution.y));
 
 
-	CardMonster mon_MonsterTruck("Monster Truck", 6, 2, "The truck is alive...  and it's hungry.", fontCardTitle, fontCardData, fontCardDescription);
-
+	//CardMonster mon_MonsterTruck("Monster Truck", 6, 2, "The truck is alive...  and it's hungry.", cardTextureMonTruck, fontCardTitle, fontCardData, fontCardDescription);
+	CardItem item_Puppy("Puppy", "DEF", 2, "She's here to lend a helping paw.", cardTextureMonTruck, fontCardTitle, fontCardData, fontCardDescription);
 
 
 	/********** [GAME LOOP] **********/
@@ -66,7 +72,8 @@ int main()
 		/********** [DRAW] **********/
 		window.clear();
 		window.setView(mainView);
-		window.draw(mon_MonsterTruck);
+		//window.draw(mon_MonsterTruck);
+		window.draw(item_Puppy);
 
 		//played cards (from both players)
 		//deck

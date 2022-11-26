@@ -27,27 +27,30 @@ protected:
 	RoundedRectangleShape m_cardImageShape;
 	
 	Text m_cardTitle;
-	Text m_cardDescription;
 	string m_cardTitleStr;
+
+	Text m_cardDescription;
 	string m_cardDescriptionStr;
 
+	Text m_cardEffect;
+	string m_cardEffectStr = "";				//won't draw if empty
+	int m_effectVal = -1;
+
 	Text m_cardPWR;
-	int m_PWRval;
+	int m_PWRval = -1;							//won't draw if lower than 0
 
 	Text m_cardDEF;
-	int m_DEFval;
+	int m_DEFval = -1;							//won't draw if lower than 0
 
-	Sprite m_cardImage;
 	Texture m_cardImageTexture;
 
 	Vector2f m_position;
 
-	FloatRect titleBounds;
-	RectangleShape titleBoundsRect_debug;
+	FloatRect m_titleBounds;
+	RectangleShape m_titleBounds_debug;			//rectangle for bounds
 
-	FloatRect descriptionBounds;
-	RectangleShape descriptionBoundsRect_debug;
-
+	FloatRect m_descriptionBounds;
+	RectangleShape m_descriptionBounds_debug;	//rectangle for bounds
 
 	virtual void draw(RenderTarget& target, RenderStates states) const;
 };

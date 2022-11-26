@@ -2,16 +2,16 @@
 #include <string>
 #include "CardMonster.h"
 
-CardMonster::CardMonster(string _title, int _power, int _defense, string _description, Font& _fontTitle, Font& _fontData, Font& _fontDescription)
+CardMonster::CardMonster(string _title, int _power, int _defense, string _description, Texture _texture, Font& _fontTitle, Font& _fontData, Font& _fontDescription)
 {
 	//TITLE
 	m_cardTitleStr = _title;
 	m_cardTitle.setFont(_fontTitle);
 	m_cardTitle.setString(m_cardTitleStr);
-	while (m_cardTitle.getGlobalBounds().width >= titleBounds.width)
+	while (m_cardTitle.getGlobalBounds().width >= m_titleBounds.width)
 	{
 		m_cardTitle.setCharacterSize(m_cardTitle.getCharacterSize() - 1);
-		m_cardTitle.setPosition(m_cardTitle.getPosition().x, m_cardTitle.getPosition().y + (titleBounds.height * 0.03));
+		m_cardTitle.setPosition(m_cardTitle.getPosition().x, m_cardTitle.getPosition().y + (m_titleBounds.height * 0.03));
 	}
 
 	//DATA (PWR)
@@ -32,15 +32,20 @@ CardMonster::CardMonster(string _title, int _power, int _defense, string _descri
 	m_cardDescriptionStr = _description;
 	m_cardDescription.setFont(_fontDescription);
 	m_cardDescription.setString(m_cardDescriptionStr);
+	//makeshift word wrap, inserts newline at letter instead of whole word so adjust description manually
 	for (int i = 0; i < m_cardDescription.getString().getSize(); i++)
 	{
-		if (m_cardDescription.findCharacterPos(i).x >= descriptionBounds.width)
+		if (m_cardDescription.findCharacterPos(i).x >= m_descriptionBounds.width)
 		{
 			string str = m_cardDescription.getString();
 			str.insert(i, "\n");
 			m_cardDescription.setString(str);
 		}
 	}
+
+	//IMAGE
+	m_cardImageTexture = _texture;
+	m_cardImageShape.setTexture(&m_cardImageTexture);
 }
 
 int CardMonster::get_defense() const
