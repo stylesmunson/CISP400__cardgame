@@ -3,8 +3,6 @@
 
 CardItem::CardItem(string _title, string _effect, int _effectVal, string _description, string _textureFile, Font& _fontTitle, Font& _fontEffect, Font& _fontDescription)
 {
-	CardBase::assemble_card();
-
 	//TITLE
 	m_cardTitleStr = _title;
 	m_cardTitle.setFont(_fontTitle);
@@ -16,6 +14,8 @@ CardItem::CardItem(string _title, string _effect, int _effectVal, string _descri
 	}
 	
 	//DATA (ITEM EFFECT)
+	m_cardEffect.setCharacterSize(20);
+	m_cardEffect.setFillColor(Color::Black);
 	string effectInput;
 	for (int i = 0; i < _effect.size(); i++)
 	{
@@ -40,8 +40,6 @@ CardItem::CardItem(string _title, string _effect, int _effectVal, string _descri
 	m_cardEffect.setOrigin(m_cardEffect.getLocalBounds().left + m_cardEffect.getLocalBounds().width / 2, 0);
 	m_cardEffect.setPosition(m_cardShape.getLocalBounds().left + m_cardShape.getLocalBounds().width / 2, m_cardShape.getGlobalBounds().height - (m_cardShape.getGlobalBounds().height * 0.10));
 
-
-
 	//DESCRIPTION
 	m_cardDescriptionStr = _description;
 	m_cardDescription.setFont(_fontDescription);
@@ -59,4 +57,33 @@ CardItem::CardItem(string _title, string _effect, int _effectVal, string _descri
 
 	//IMAGE
 	m_cardImageShape.setTexture(&TextureHolder::GetTexture(_textureFile));
+}
+
+string CardItem::get_title() const
+{
+	return m_cardTitleStr;
+}
+
+void CardItem::set_position(Vector2f _pos)
+{
+	m_position = _pos;
+}
+
+Vector2f CardItem::get_position() const
+{
+	return m_position;
+}
+
+void CardItem::draw(RenderTarget& target, RenderStates states) const
+{
+	target.draw(m_cardShape, states);
+	target.draw(m_cardImageShape, states);
+
+	target.draw(m_cardTitle, states);
+	target.draw(m_titleBounds_debug, states);
+
+	target.draw(m_cardDescription, states);
+	target.draw(m_descriptionBounds_debug, states);
+
+	target.draw(m_cardEffect, states);
 }

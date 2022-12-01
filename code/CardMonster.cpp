@@ -5,8 +5,6 @@
 
 CardMonster::CardMonster(string _title, int _power, int _defense, string _description, string _textureFile, Font& _fontTitle, Font& _fontData, Font& _fontDescription)
 {
-	CardBase::assemble_card();
-
 	//TITLE
 	m_cardTitleStr = _title;
 	m_cardTitle.setFont(_fontTitle);
@@ -18,6 +16,9 @@ CardMonster::CardMonster(string _title, int _power, int _defense, string _descri
 	}
 
 	//DATA (PWR)
+	m_cardPWR.setCharacterSize(20);
+	m_cardPWR.setFillColor(Color::Black);
+	m_cardPWR.setPosition(m_cardImageShape.getGlobalBounds().left, m_cardShape.getGlobalBounds().height - (m_cardShape.getGlobalBounds().height * 0.10));
 	m_PWRval = _power;
 	m_cardPWR.setFont(_fontData);
 	stringstream PWRstream;
@@ -25,6 +26,9 @@ CardMonster::CardMonster(string _title, int _power, int _defense, string _descri
 	m_cardPWR.setString(PWRstream.str());
 
 	//DATA (DEF)
+	m_cardDEF.setCharacterSize(20);
+	m_cardDEF.setFillColor(Color::Black);
+	m_cardDEF.setPosition(m_cardPWR.getGlobalBounds().width + 122, m_cardPWR.getGlobalBounds().top);
 	m_DEFval = _defense;
 	m_cardDEF.setFont(_fontData);
 	stringstream DEFstream;
@@ -45,14 +49,24 @@ CardMonster::CardMonster(string _title, int _power, int _defense, string _descri
 			m_cardDescription.setString(str);
 		}
 	}
-
+	
 	//IMAGE
 	m_cardImageShape.setTexture(&TextureHolder::GetTexture(_textureFile));
 }
 
-int CardMonster::get_defense() const
+string CardMonster::get_title() const
 {
-	return m_DEFval;
+	return m_cardTitleStr;
+}
+
+void CardMonster::set_position(Vector2f _pos)
+{
+	m_position = _pos;
+}
+
+Vector2f CardMonster::get_position() const
+{
+	return m_position;
 }
 
 int CardMonster::get_power() const
@@ -60,10 +74,31 @@ int CardMonster::get_power() const
 	return m_PWRval;
 }
 
+int CardMonster::get_defense() const
+{
+	return m_DEFval;
+}
+
+
 void CardMonster::death_check()
 {
 	if (m_DEFval <= 0)
 	{
 		/*destroy monster */
 	}
+}
+
+void CardMonster::draw(RenderTarget& target, RenderStates states) const
+{
+	target.draw(m_cardShape, states);
+	target.draw(m_cardImageShape, states);
+
+	target.draw(m_cardTitle, states);
+	target.draw(m_titleBounds_debug, states);
+
+	target.draw(m_cardDescription, states);
+	target.draw(m_descriptionBounds_debug, states);
+	
+	target.draw(m_cardPWR, states);
+	target.draw(m_cardDEF, states);
 }

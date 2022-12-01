@@ -1,7 +1,7 @@
 #include "CardBase.h"
 #include <iostream>
 
-void CardBase::assemble_card()
+CardBase::CardBase()
 {
 	/********** [ ASSEMBLE SHAPES ] **********/
 	m_cardShape.setCornerPointCount(2);
@@ -36,34 +36,28 @@ void CardBase::assemble_card()
 	m_cardTitle.setFillColor(Color::Black);
 	m_cardTitle.setPosition(m_cardImageShape.getGlobalBounds().left, 12);
 
-	//POWER
-	m_cardPWR.setCharacterSize(20);
-	m_cardPWR.setFillColor(Color::Black);
-	m_cardPWR.setPosition(m_cardImageShape.getGlobalBounds().left, m_cardShape.getGlobalBounds().height - (m_cardShape.getGlobalBounds().height * 0.10));
-
-	//DEFENSE
-	m_cardDEF.setCharacterSize(20);
-	m_cardDEF.setFillColor(Color::Black);
-	m_cardDEF.setPosition(m_cardPWR.getGlobalBounds().width + 122, m_cardPWR.getGlobalBounds().top);
-
 	//DESCRIPTION
 	m_cardDescription.setCharacterSize(14);
 	m_cardDescription.setFillColor(Color::Black);
 	m_cardDescription.setPosition(m_cardImageShape.getGlobalBounds().left, m_cardImageShape.getGlobalBounds().height + (m_cardImageShape.getLocalBounds().height * 0.27));
 
-	//EFFECT
-	m_cardEffect.setCharacterSize(20);
-	m_cardEffect.setFillColor(Color::Black);
-	//m_cardEffect.setOrigin(m_cardEffect.getLocalBounds().left + m_cardEffect.getLocalBounds().width / 2, m_cardEffect.getLocalBounds().top + m_cardEffect.getLocalBounds().height);
-	//m_cardEffect.setPosition(m_cardImageShape.getGlobalBounds().left, m_cardShape.getGlobalBounds().height - (m_cardShape.getGlobalBounds().height * 0.10));
-
 	calc_title_bounds();
 	calc_desc_bounds();
- }
+}
 
 string CardBase::get_title() const
 {
 	return m_cardTitleStr;
+}
+
+void CardBase::set_position(Vector2f _pos)
+{
+	m_position = _pos;
+}
+
+Vector2f CardBase::get_position() const
+{
+	return m_position;
 }
 
 void CardBase::calc_title_bounds()
@@ -86,25 +80,4 @@ void CardBase::calc_desc_bounds()
 	m_descriptionBounds_debug.setOutlineColor(Color::Red);
 	m_descriptionBounds_debug.setOutlineThickness(1);
 	m_descriptionBounds_debug.setFillColor(Color::Transparent);
-}
-
-void CardBase::draw(RenderTarget& target, RenderStates states) const
-{
-	target.draw(m_cardShape, states);
-	target.draw(m_cardImageShape, states);
-
-	target.draw(m_cardTitle, states);
-	target.draw(m_titleBounds_debug, states);
-
-	target.draw(m_cardDescription, states);
-	target.draw(m_descriptionBounds_debug, states);
-
-	if (m_PWRval > 0)
-		target.draw(m_cardPWR, states);
-
-	if (m_DEFval > 0)
-		target.draw(m_cardDEF, states);
-
-	if (m_cardEffectStr != "")
-		target.draw(m_cardEffect, states);
 }

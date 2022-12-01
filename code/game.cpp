@@ -70,8 +70,6 @@ int main()
 
 	deck.emplace_back(new CardItem("Puppy", "DEF", 2, "She's here to lend a helping paw.", "res/graphics/temp.png", fonts.fontCardTitle, fonts.fontCardData, fonts.fontCardDescription));
 
-	//TEXTS
-
 	gamescreen = GameScreen::MAINMENU;
 	playstate = PlayState::NOTPLAYING;
 
