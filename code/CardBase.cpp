@@ -1,16 +1,6 @@
 #include "CardBase.h"
 #include <iostream>
 
-CardBase::CardBase()
-{
-	assemble_card();
-}
-
-string CardBase::get_title() const
-{
-	return m_cardTitleStr;
-}
-
 void CardBase::assemble_card()
 {
 	/********** [ ASSEMBLE SHAPES ] **********/
@@ -71,6 +61,10 @@ void CardBase::assemble_card()
 	calc_desc_bounds();
  }
 
+string CardBase::get_title() const
+{
+	return m_cardTitleStr;
+}
 
 void CardBase::calc_title_bounds()
 {

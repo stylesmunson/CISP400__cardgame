@@ -1,9 +1,12 @@
 #include <sstream>
 #include <string>
 #include "CardMonster.h"
+#include "TextureHolder.h"
 
-CardMonster::CardMonster(string _title, int _power, int _defense, string _description, Texture _texture, Font& _fontTitle, Font& _fontData, Font& _fontDescription)
+CardMonster::CardMonster(string _title, int _power, int _defense, string _description, string _textureFile, Font& _fontTitle, Font& _fontData, Font& _fontDescription)
 {
+	CardBase::assemble_card();
+
 	//TITLE
 	m_cardTitleStr = _title;
 	m_cardTitle.setFont(_fontTitle);
@@ -44,8 +47,7 @@ CardMonster::CardMonster(string _title, int _power, int _defense, string _descri
 	}
 
 	//IMAGE
-	m_cardImageTexture = _texture;
-	m_cardImageShape.setTexture(&m_cardImageTexture);
+	m_cardImageShape.setTexture(&TextureHolder::GetTexture(_textureFile));
 }
 
 int CardMonster::get_defense() const

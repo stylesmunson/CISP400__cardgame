@@ -1,7 +1,10 @@
 #include "CardItem.h"
+#include "TextureHolder.h"
 
-CardItem::CardItem(string _title, string _effect, int _effectVal, string _description, Texture _texture, Font& _fontTitle, Font& _fontEffect, Font& _fontDescription)
+CardItem::CardItem(string _title, string _effect, int _effectVal, string _description, string _textureFile, Font& _fontTitle, Font& _fontEffect, Font& _fontDescription)
 {
+	CardBase::assemble_card();
+
 	//TITLE
 	m_cardTitleStr = _title;
 	m_cardTitle.setFont(_fontTitle);
@@ -55,6 +58,5 @@ CardItem::CardItem(string _title, string _effect, int _effectVal, string _descri
 	}
 
 	//IMAGE
-	m_cardImageTexture = _texture;
-	m_cardImageShape.setTexture(&m_cardImageTexture);
+	m_cardImageShape.setTexture(&TextureHolder::GetTexture(_textureFile));
 }

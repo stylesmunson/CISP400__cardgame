@@ -8,13 +8,15 @@ using namespace std;
 class CardBase : public Drawable
 {
 public:
-	CardBase();
+	CardBase() {}
+	virtual ~CardBase() {}
+	
 	void assemble_card();
 
-	string get_title() const;
+	virtual string get_title() const;
 
-	void set_position();
-	Vector2f get_position() const;
+	//virtual void set_position();
+	//virtual Vector2f get_position() const;
 
 	void calc_title_bounds();
 	void calc_desc_bounds();
@@ -42,8 +44,6 @@ protected:
 	Text m_cardDEF;
 	int m_DEFval = -1;							//won't draw if lower than 0
 
-	Texture m_cardImageTexture;
-
 	Vector2f m_position;
 
 	FloatRect m_titleBounds;
@@ -53,4 +53,5 @@ protected:
 	RectangleShape m_descriptionBounds_debug;	//rectangle for bounds
 
 	virtual void draw(RenderTarget& target, RenderStates states) const;
+
 };

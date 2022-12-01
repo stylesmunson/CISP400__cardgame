@@ -4,8 +4,10 @@
 class CardItem : public CardBase
 {
 public:
-	CardItem(string _title, string _effect, int _effectVal, string _description, Texture _texture, Font& _fontTitle, Font& _fontEffect, Font& _fontDescription);
+	CardItem() {}
+	CardItem(string _title, string _effect, int _effectVal, string _description, string _textureFile, Font& _fontTitle, Font& _fontEffect, Font& _fontDescription);
+	
+	//string get_title() const {}
 
 private:
-	//spell effect?
 };

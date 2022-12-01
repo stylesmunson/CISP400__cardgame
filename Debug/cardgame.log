@@ -1,6 +1,38 @@
-﻿  CardItem.cpp
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\CardItem.cpp(12,84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\CardItem.cpp(17,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\CardItem.cpp(38,140): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\CardItem.cpp(47,20): warning C4018: '<': signed/unsigned mismatch
+﻿  game.cpp
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(26,84): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(26,49): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(27,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(27,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(33,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(142,15): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(31,8): warning C4101: 'event': unreferenced local variable
+  Menu.cpp
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\Menu.cpp(5,84): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\Menu.cpp(5,49): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\Menu.cpp(26,62): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   cardgame.vcxproj -> C:\Users\Kezai\source\repos\stylesmunson\cardgame\Debug\cardgame.exe
