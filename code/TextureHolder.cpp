@@ -9,7 +9,7 @@ TextureHolder::TextureHolder()
 	m_s_Instance = this;					//assigns ptr m_s_Instance to 'this' (itself)
 }
 
-Texture& TextureHolder::GetTexture(string const& filename)
+Texture& TextureHolder::get_texture(string const& filename)
 {
 	auto& m = m_s_Instance->m_Textures;						//reference map 'm' of map m_Textures
 	auto keyValuePair = m.find(filename);					//create iterator to hold KVP & search for KVP using filename

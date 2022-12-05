@@ -1,3 +1,4 @@
+#include <iostream>
 #include "CardItem.h"
 #include "TextureHolder.h"
 
@@ -56,7 +57,7 @@ CardItem::CardItem(string _title, string _effect, int _effectVal, string _descri
 	}
 
 	//IMAGE
-	m_cardImageShape.setTexture(&TextureHolder::GetTexture(_textureFile));
+	m_cardImageShape.setTexture(&TextureHolder::get_texture(_textureFile));
 }
 
 string CardItem::get_title() const
@@ -64,18 +65,42 @@ string CardItem::get_title() const
 	return m_cardTitleStr;
 }
 
-void CardItem::set_position(Vector2f _pos)
+FloatRect CardItem::get_bounds() const
 {
-	m_position = _pos;
+	FloatRect cardBounds(getPosition(), CARD_SIZE);
+	return cardBounds;
 }
 
-Vector2f CardItem::get_position() const
+string CardItem::get_type() const
 {
-	return m_position;
+	return "item";
+}
+
+void CardItem::set_outline_color(Color _color)
+{
+	m_cardShape.setOutlineColor(_color);
+}
+
+bool CardItem::mouse_is_over(RenderWindow& _window)
+{
+	Vector2f mousePosFloat = static_cast<Vector2f>(Mouse::getPosition(_window));			//get mouse coords
+	if (get_bounds().contains(mousePosFloat))
+	{
+		std::cout << "mouse is over " << this->get_title() << endl;
+		return true;
+	}
+}
+
+void CardItem::set_position(Vector2f _pos)
+{
+	setPosition(_pos);
+	m_cardShape.setPosition(_pos);
 }
 
 void CardItem::draw(RenderTarget& target, RenderStates states) const
 {
+	states.transform *= getTransform();
+
 	target.draw(m_cardShape, states);
 	target.draw(m_cardImageShape, states);
 

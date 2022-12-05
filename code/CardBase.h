@@ -5,14 +5,18 @@ using namespace sf;
 using namespace std;
 
 
-class CardBase : public Drawable
+class CardBase : public Drawable, public Transformable
 {
 public:
 	CardBase();
-	virtual string get_title() const;
+	virtual string get_title() const = 0;
+	virtual FloatRect get_bounds() const = 0;
+	virtual string get_type() const = 0;
 
-	virtual void set_position(Vector2f _pos);
-	virtual Vector2f get_position() const;
+	virtual void set_outline_color(Color _color) = 0;
+	virtual void set_position(Vector2f _pos) = 0;
+
+	virtual bool mouse_is_over(RenderWindow& _window) = 0;
 
 protected:
 	Vector2f CARD_SIZE = { 200, 320 };
@@ -27,8 +31,6 @@ protected:
 	Text m_cardDescription;
 	string m_cardDescriptionStr;
 
-	Vector2f m_position;
-
 	FloatRect m_titleBounds;
 	RectangleShape m_titleBounds_debug;			//rectangle for bounds
 
@@ -37,7 +39,6 @@ protected:
 
 	virtual void draw(RenderTarget& target, RenderStates states) const = 0;
 
-private:
 	void calc_title_bounds();
 	void calc_desc_bounds();
 };

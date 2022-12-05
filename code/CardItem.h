@@ -7,9 +7,13 @@ public:
 	CardItem(string _title, string _effect, int _effectVal, string _description, string _textureFile, Font& _fontTitle, Font& _fontEffect, Font& _fontDescription);
 	
 	virtual string get_title() const;
+	virtual FloatRect get_bounds() const;
+	virtual string get_type() const;
 
+	virtual void set_outline_color(Color _color);
 	virtual void set_position(Vector2f _pos);
-	virtual Vector2f get_position() const;
+
+	virtual bool mouse_is_over(RenderWindow& _window);
 
 private:
 	Text m_cardEffect;

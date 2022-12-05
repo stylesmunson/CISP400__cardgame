@@ -7,16 +7,16 @@ CardBase::CardBase()
 	m_cardShape.setCornerPointCount(2);
 	m_cardShape.setCornersRadius(5);
 	m_cardShape.setSize(CARD_SIZE);
-	m_cardShape.setOutlineColor(Color::Blue);
+	m_cardShape.setOutlineColor(Color::Black);
 	m_cardShape.setFillColor(Color::White);
-	m_cardShape.setOutlineThickness(-2);
+	m_cardShape.setOutlineThickness(2);
 
 	m_cardImageShape.setCornerPointCount(2);
 	m_cardImageShape.setCornersRadius(5);
 	m_cardImageShape.setSize(CARD_IMG_SIZE);
 	m_cardImageShape.setOutlineColor(Color::Black);
 	m_cardImageShape.setFillColor(Color::White);
-	m_cardImageShape.setOutlineThickness(2.0);
+	m_cardImageShape.setOutlineThickness(2);
 
 	FloatRect cardImageShape_locBounds = m_cardImageShape.getLocalBounds();
 	FloatRect cardShape_locBounds = m_cardShape.getLocalBounds();
@@ -43,21 +43,6 @@ CardBase::CardBase()
 
 	calc_title_bounds();
 	calc_desc_bounds();
-}
-
-string CardBase::get_title() const
-{
-	return m_cardTitleStr;
-}
-
-void CardBase::set_position(Vector2f _pos)
-{
-	m_position = _pos;
-}
-
-Vector2f CardBase::get_position() const
-{
-	return m_position;
 }
 
 void CardBase::calc_title_bounds()

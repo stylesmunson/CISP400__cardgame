@@ -1,5 +1,6 @@
 #include <sstream>
 #include <string>
+#include <iostream>
 #include "CardMonster.h"
 #include "TextureHolder.h"
 
@@ -28,12 +29,14 @@ CardMonster::CardMonster(string _title, int _power, int _defense, string _descri
 	//DATA (DEF)
 	m_cardDEF.setCharacterSize(20);
 	m_cardDEF.setFillColor(Color::Black);
-	m_cardDEF.setPosition(m_cardPWR.getGlobalBounds().width + 122, m_cardPWR.getGlobalBounds().top);
+	m_cardDEF.setPosition(m_cardImageShape.getGlobalBounds().left + 108, m_cardShape.getGlobalBounds().height - (m_cardShape.getGlobalBounds().height * 0.10));
 	m_DEFval = _defense;
 	m_cardDEF.setFont(_fontData);
 	stringstream DEFstream;
 	DEFstream << "DEF " << m_DEFval;
 	m_cardDEF.setString(DEFstream.str());
+	if (m_DEFval == 10)
+		m_cardDEF.setPosition(m_cardImageShape.getGlobalBounds().left + 97, m_cardShape.getGlobalBounds().height - (m_cardShape.getGlobalBounds().height * 0.10));
 
 	//DESCRIPTION
 	m_cardDescriptionStr = _description;
@@ -51,22 +54,12 @@ CardMonster::CardMonster(string _title, int _power, int _defense, string _descri
 	}
 	
 	//IMAGE
-	m_cardImageShape.setTexture(&TextureHolder::GetTexture(_textureFile));
+	m_cardImageShape.setTexture(&TextureHolder::get_texture(_textureFile));
 }
 
 string CardMonster::get_title() const
 {
 	return m_cardTitleStr;
-}
-
-void CardMonster::set_position(Vector2f _pos)
-{
-	m_position = _pos;
-}
-
-Vector2f CardMonster::get_position() const
-{
-	return m_position;
 }
 
 int CardMonster::get_power() const
@@ -79,17 +72,43 @@ int CardMonster::get_defense() const
 	return m_DEFval;
 }
 
-
-void CardMonster::death_check()
+FloatRect CardMonster::get_bounds() const
 {
-	if (m_DEFval <= 0)
+	FloatRect cardBounds(getPosition(), CARD_SIZE);
+	return cardBounds;
+}
+
+string CardMonster::get_type() const
+{
+	return "monster";
+}
+
+void CardMonster::set_position(Vector2f _pos)
+{
+	m_cardShape.setPosition(_pos);
+	setPosition(_pos);
+}
+
+void CardMonster::set_outline_color(Color _color)
+{
+	m_cardShape.setOutlineColor(_color);
+}
+
+
+bool CardMonster::mouse_is_over(RenderWindow& _window)
+{
+	Vector2f mousePosFloat = static_cast<Vector2f>(Mouse::getPosition(_window));			//get mouse coords
+	if (get_bounds().contains(mousePosFloat))
 	{
-		/*destroy monster */
+		std::cout << "mouse is over " << this->get_title() << endl;
+		return true;
 	}
 }
 
 void CardMonster::draw(RenderTarget& target, RenderStates states) const
 {
+	states.transform *= getTransform();
+
 	target.draw(m_cardShape, states);
 	target.draw(m_cardImageShape, states);
 

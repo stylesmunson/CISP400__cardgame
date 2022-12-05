@@ -12,7 +12,7 @@ class TextureHolder
 {
 public:
 	TextureHolder();
-	static Texture& GetTexture(string const& filename);
+	static Texture& get_texture(string const& filename);
 
 private:
 	map<string, Texture> m_Textures;		//map holds pairs of string & texture
