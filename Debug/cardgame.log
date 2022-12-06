@@ -1,23 +1,23 @@
 ﻿  game.cpp
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(29,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(30,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(29,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(30,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(33,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(158,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(170,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(203,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(220,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(262,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(274,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(307,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(323,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(157,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(169,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(202,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(219,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(261,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(273,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(306,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(322,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\Button.h(81): warning C4715: 'Button::mouse_is_over': not all control paths return a value
 C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\BattleWindow.h(102): warning C4715: 'BattleWindow::battle_math': not all control paths return a value
   cardgame.vcxproj -> C:\Users\Kezai\source\repos\stylesmunson\cardgame\Debug\cardgame.exe

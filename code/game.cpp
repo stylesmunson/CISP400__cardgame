@@ -13,6 +13,7 @@
 #include "Menu.h"
 #include "GameScreen.h"
 #include "BattleWindow.h"
+#include "WinnerWindow.h"
 
 using namespace sf;
 using namespace std;
@@ -33,7 +34,7 @@ int main()
 	srand(time(0));
 
 	enum class GameState {	MAINMENU, PLAYING_P1, PLAYING_P2, GAMEOVER };
-	enum class PlayState  {	NOTPLAYING, GAME_BEGIN, BATTLE_PHASE,
+	enum class PlayState  {	NOTPLAYING, GAME_BEGIN, BATTLE_PHASE, WINNER_PHASE,
 							PLAYER1_MONSTERPHASE, PLAYER1_ITEMPHASE,
 							PLAYER2_MONSTERPHASE, PLAYER2_ITEMPHASE };
 	GameState gamestate;
@@ -59,6 +60,7 @@ int main()
 	Menu menu(resolution.x, resolution.y, fonts.fontCardTitle, fonts.fontCardData);
 	GameScreen gamescreen(resolution.x, resolution.y, fonts.fontCardData);
 	BattleWindow battlewindow(resolution.x, resolution.y);
+	WinnerWindow winnerwindow(resolution.x, resolution.y, fonts.fontCardTitle);
 	
 	Music music;
 	music.openFromFile("res/music/Rock song 1 (done i think).wav");
@@ -73,9 +75,6 @@ int main()
 	/*********************************/
 	while (window.isOpen())
 	{
-
-
-
 		/********** [-MAIN MENU-] **********/
 		if (gamestate == GameState::MAINMENU)
 		{
@@ -111,7 +110,7 @@ int main()
 				}
 			}
 		}
-		
+
 		/********** [-PLAYING-] **********/
 		if (gamestate == GameState::PLAYING_P1)
 		{
@@ -144,7 +143,7 @@ int main()
 			if (playstate == PlayState::PLAYER1_MONSTERPHASE)
 			{
 				gamescreen.update_phaseText("[PLAYER 1]\n     MONSTER PHASE");
-				gamescreen.display_hand(player1hand, {203, 76, 78, 170});				//update hand
+				gamescreen.display_hand(player1hand, { 203, 76, 78, 170 });				//update hand
 				gamescreen.display_tokens(player1_tokens);								//update tokens
 
 				while (window.pollEvent(event))
@@ -365,17 +364,19 @@ int main()
 						if (Mouse::isButtonPressed(Mouse::Left) && gamescreen.m_btnNext.mouse_is_over(window))
 						{
 							string winner = battlewindow.battle_math(player1_battlezone, player2_battlezone);
+							winnerwindow.display_winner_window(winner);
+
 							if (winner == "P1 WIN")
 							{
 								player2_tokens.pop_back();
-								cout<< "player 1 tokens: "<< player1_tokens.size()<< endl;
-								cout<< "player 2 tokens: "<< player2_tokens.size()<< endl;
+								cout << "player 1 tokens: " << player1_tokens.size() << endl;
+								cout << "player 2 tokens: " << player2_tokens.size() << endl;
 							}
 							else if (winner == "P2 WIN")
 							{
 								player1_tokens.pop_back();
-								cout<< "player 1 tokens: "<< player1_tokens.size()<< endl;
-								cout<< "player 2 tokens: "<< player2_tokens.size()<< endl;
+								cout << "player 1 tokens: " << player1_tokens.size() << endl;
+								cout << "player 2 tokens: " << player2_tokens.size() << endl;
 							}
 							else if (winner == "TIE")
 							{
@@ -383,6 +384,31 @@ int main()
 								player2_tokens.pop_back();
 							}
 							cout << winner << endl;
+							playstate = PlayState::WINNER_PHASE;
+						}
+					}
+				}
+			}
+
+			if (playstate == PlayState::WINNER_PHASE)
+			{
+				while (window.pollEvent(event))
+				{
+					battlewindow.display_battle_window(player1_battlezone, player2_battlezone);
+					switch (event.type)
+					{
+					case Event::Closed:
+						window.close();
+
+					case Event::MouseMoved:
+						if (gamescreen.m_btnNext.mouse_is_over(window))
+							gamescreen.m_btnNext.set_outline_size(5.0f);
+						else
+							gamescreen.m_btnNext.set_outline_size(2.0f);
+
+					case Event::MouseButtonPressed:
+						if (Mouse::isButtonPressed(Mouse::Left) && gamescreen.m_btnNext.mouse_is_over(window))
+						{
 
 							//check for game over (shoddy I know)
 							if (player1_tokens.size() == 0 || player2_tokens.size() == 0)
@@ -458,6 +484,18 @@ int main()
 				window.draw(*i);
 			for (auto const& i : player2_battlezone)
 				window.draw(*i);
+		}
+
+		if (playstate == PlayState::WINNER_PHASE)
+		{
+			window.draw(battlewindow);
+
+			for (auto const& i : player1_battlezone)
+				window.draw(*i);
+			for (auto const& i : player2_battlezone)
+				window.draw(*i);
+
+			window.draw(winnerwindow);
 		}
 
 		window.display();
