@@ -383,6 +383,9 @@ int main()
 								player1_tokens.pop_back();
 								player2_tokens.pop_back();
 							}
+							else if (winner == "BUNK"){
+								//nothing 
+							}
 							cout << winner << endl;
 							playstate = PlayState::WINNER_PHASE;
 						}
