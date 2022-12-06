@@ -35,6 +35,8 @@ public:
 			m_winnerText.setString("P2 WINS BATTLE");
 		else if (_winner == "TIE")
 			m_winnerText.setString("IT WAS A TIE\n&\nYOU BOTH LOSE A LIFE TOKEN");
+		else if (_winner == "BUNK")
+			m_winnerText.setString("NOBODY WINS\nGO TO NEXT ROUND");
 	}
 
 private:
