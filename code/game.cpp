@@ -124,58 +124,17 @@ int main()
 				{
 					player1hand.push_back(deck.front());				//copy top card from deck to hand
 					deck.pop_front();									//remove top card from deck
-				}					player1hand.clear();
-
+					//card drawing animation to player 1
+				}
 				cout << "player 1 draws 4 cards" << endl;				//print (debug)
 
 				for (int i = 0; i < 4; i++)								//draw 4 cards to player2hand
 				{
 					player2hand.push_back(deck.front());				//copy top card from deck to hand
 					deck.pop_front();									//remove top card from deck
+					//card drawing animation to player 2
 				}
 				cout << "player 2 draws 4 cards" << endl;				//print (debug)
-
-				// //MULLIGAN REDRAW IF ALL ITEMS
-				// int p1_itemCt = 0; int p2_itemCt = 0;
-				// for (int i = 0; i < 4; i++)
-				// {
-				// 	if (player1hand.at(i)->get_type() == "item")
-				// 		p1_itemCt++;
-				// 	if (player2hand.at(i)->get_type() == "item")
-				// 		p2_itemCt++;
-				// }
-
-				// if (p1_itemCt == 4)											//if player 1 has all items, put em into the bottom of deck, redraw
-				// {
-				// 	for (int i = 0; i < 4; i++)
-				// 		deck.push_back(player1hand.at(i));
-					
-				// 	player1hand.clear();
-
-				// 	for (int i = 0; i < 4; i++)								//draw 4 cards to player1hand 
-				// 	{
-				// 		player1hand.push_back(deck.front());				//copy top card from deck to hand
-				// 		deck.pop_front();									//remove top card from deck
-				// 	}
-				// 	cout << "[REDRAW] player 1 draws 4 cards" << endl;				//print (debug)
-				// }
-
-
-				// if (p2_itemCt == 4)											//if player 1 has all items, put em into the bottom of deck, redraw
-				// {
-				// 	for (int i = 0; i < 4; i++)
-				// 		deck.push_back(player2hand.at(i));
-					
-				// 	player2hand.clear();									//clear hand
-							
-				// 	for (int i = 0; i < 4; i++)								//draw 4 cards to player1hand 
-				// 	{
-				// 		player2hand.push_back(deck.front());				//copy top card from deck to hand
-				// 		deck.pop_front();									//remove top card from deck
-				// 	}
-				// 	cout << "[REDRAW] player 2 draws 4 cards" << endl;				//print (debug)
-				// }
-					
 
 				playstate = PlayState::PLAYER1_MONSTERPHASE;
 			}
