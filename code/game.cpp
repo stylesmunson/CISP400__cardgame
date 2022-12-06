@@ -25,7 +25,7 @@ int main()
 
 	//display setup
 
-	Vector2f resolution(VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height);
+	Vector2f resolution(1920, 1080);
 	RenderWindow window(VideoMode(resolution.x, resolution.y), "Card Battler Deluxe III Jr.", Style::Default);
 
 	Event event;
