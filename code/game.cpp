@@ -25,10 +25,7 @@ int main()
 
 	//display setup
 	Vector2f resolution(1920, 1080);
-	RenderWindow window(VideoMode(resolution.x, resolution.y), "Card Battler Deluxe III Jr.", Style::Fullscreen);
-	View mainview;
-	mainview.reset(FloatRect(0, 0, 1920, 1080));
-
+	RenderWindow window(VideoMode(resolution.x, resolution.y), "Card Battler Deluxe III Jr.", Style::Default);
 
 	Event event;
 	
