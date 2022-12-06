@@ -383,11 +383,13 @@ int main()
 								player1_tokens.pop_back();
 								player2_tokens.pop_back();
 							}
-							else if (winner == "BUNK"){
+							else if (winner == "BUNK")
+							{
 								//nothing 
 							}
 							cout << winner << endl;
 							playstate = PlayState::WINNER_PHASE;
+							break;
 						}
 					}
 				}
@@ -395,9 +397,9 @@ int main()
 
 			if (playstate == PlayState::WINNER_PHASE)
 			{
+				battlewindow.display_battle_window(player1_battlezone, player2_battlezone);
 				while (window.pollEvent(event))
 				{
-					battlewindow.display_battle_window(player1_battlezone, player2_battlezone);
 					switch (event.type)
 					{
 					case Event::Closed:
@@ -412,7 +414,6 @@ int main()
 					case Event::MouseButtonPressed:
 						if (Mouse::isButtonPressed(Mouse::Left) && gamescreen.m_btnNext.mouse_is_over(window))
 						{
-
 							//check for game over (shoddy I know)
 							if (player1_tokens.size() == 0 || player2_tokens.size() == 0)
 								window.close();
