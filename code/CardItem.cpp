@@ -72,7 +72,7 @@ string CardItem::get_type() const
 
 string CardItem::get_effectType() const
 {
-	return m_cardEffectStr;
+	return m_effectType;
 }
 
 int CardItem::get_effectVal() const
