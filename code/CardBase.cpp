@@ -66,3 +66,23 @@ void CardBase::calc_desc_bounds()
 	m_descriptionBounds_debug.setOutlineThickness(1);
 	m_descriptionBounds_debug.setFillColor(Color::Transparent);
 }
+
+int CardBase::get_power() const
+{
+	return -1;
+}
+
+int CardBase::get_defense() const
+{
+	return -1;
+}
+
+string CardBase::get_effectType() const
+{
+	return "";
+}
+
+int CardBase::get_effectVal() const
+{
+	return -1;
+}

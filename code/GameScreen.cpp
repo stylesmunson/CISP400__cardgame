@@ -1,19 +1,23 @@
+#include <vector>
+#include <iostream>
+
 #include "GameScreen.h"
+#include "CardBase.h"
 #include "CardMonster.h"
 #include "CardItem.h"
 
-#include <iostream>
-using std::cout; using std::endl;
+using std::cout; using std::endl; using std::vector;
 
 GameScreen::GameScreen(float _width, float _height, Font& _fontLabeling)
-{	
+	: m_btnNext({ 100, 60 }, "NEXT", Color::Black, _fontLabeling)
+{
 	m_resolution.x = _width;
 	m_resolution.y = _height;
 
 	//background color
 	m_screenBG.setSize(m_resolution);
 	m_screenBG.setFillColor({ 238, 238, 240, 255 });
-	
+
 	//hand placement
 	m_handZone = FloatRect({ 450, 700 }, { 850 , 320 });
 	m_handZoneRect.setCornerPointCount(8);
@@ -66,22 +70,27 @@ GameScreen::GameScreen(float _width, float _height, Font& _fontLabeling)
 	m_labelPhase.setFillColor(Color::Red);
 	m_labelPhase.setPosition(50, 50);
 
-	//tokens
-	for (int i = 0; i < 20; i++)
-	{
-		m_player1tokens.push_back(CircleShape(25, 12));
-		m_player1tokens.at(i).setPosition({ 1440 + i * 10, 755 });
-		m_player1tokens.at(i).setOutlineColor(Color::Red);
-		m_player1tokens.at(i).setOutlineThickness(2);
-		m_player1tokens.at(i).setFillColor({ 203, 76, 78, 170 });
-	}
-	m_player2tokens = m_player1tokens;
+	//next btn
+	m_btnNext.set_position({ 400 , 35 });
 }
 
-void GameScreen::dispay_tokens(vector<CircleShape>& _tokens)
+
+void GameScreen::display_tokens(vector<CircleShape>& _tokens)
 {
-
+	if (_tokens.size() > 6)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			_tokens.at(i).setPosition({ 1479.0f + i * 51.0f, 805.0f });
+		}
+		for (int i = 0; i < _tokens.size() - 6; i++)
+			_tokens.at(i + 6).setPosition({ 1479.0f + i * 51.0f, 855.0f });
+	}
+	else
+		for (int i = 0; i < _tokens.size(); i++)
+			_tokens.at(i).setPosition({ 1479.0f + i * 51.0f, 805.0f });
 }
+
 
 void GameScreen::display_hand(vector<CardBase*>& _hand, Color _color)
 {	
@@ -90,6 +99,7 @@ void GameScreen::display_hand(vector<CardBase*>& _hand, Color _color)
 
 	m_handZoneRect.setFillColor(_color);
 }
+
 
 void GameScreen::display_battleZone(vector<CardBase*>& _battlezone)
 {
@@ -100,11 +110,13 @@ void GameScreen::display_battleZone(vector<CardBase*>& _battlezone)
 		_battlezone.at(1)->setPosition(get_item_zone().x - 100, get_item_zone().y - 155);
 }
 
+
 Vector2f GameScreen::get_monster_zone() const
 {
 	return { m_monsterZoneRect.getGlobalBounds().left + m_monsterZoneRect.getGlobalBounds().width / 2,
 		m_monsterZoneRect.getGlobalBounds().top + m_monsterZoneRect.getGlobalBounds().height / 2 };
 }
+
 
 Vector2f GameScreen::get_item_zone() const
 {
@@ -112,10 +124,12 @@ Vector2f GameScreen::get_item_zone() const
 		m_itemZoneRect.getGlobalBounds().top + m_itemZoneRect.getGlobalBounds().height / 2 };
 }
 
+
 void GameScreen::update_phaseText(string _phase)
 {
 	m_labelPhase.setString(_phase);
 }
+
 
 void GameScreen::draw(RenderTarget& target, RenderStates states) const
 {
@@ -129,9 +143,8 @@ void GameScreen::draw(RenderTarget& target, RenderStates states) const
 	target.draw(m_itemZoneRect, states);
 	target.draw(m_handZoneRect, states);
 
+	target.draw(m_btnNext, states);
+
 	target.draw(m_labelDeck, states);
 	target.draw(m_labelPhase, states);
-
-	//if (player 1 turn)
-	target.draw
 }

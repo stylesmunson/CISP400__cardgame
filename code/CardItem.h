@@ -10,6 +10,9 @@ public:
 	virtual FloatRect get_bounds() const;
 	virtual string get_type() const;
 
+	virtual string get_effectType() const;
+	virtual int get_effectVal() const;
+
 	virtual void set_outline_color(Color _color);
 	virtual void set_position(Vector2f _pos);
 
@@ -18,6 +21,7 @@ public:
 private:
 	Text m_cardEffect;
 	string m_cardEffectStr = "";
+	string m_effectType = "";
 	int m_effectVal;
 
 	virtual void draw(RenderTarget& target, RenderStates states) const;

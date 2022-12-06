@@ -113,10 +113,10 @@ void CardMonster::draw(RenderTarget& target, RenderStates states) const
 	target.draw(m_cardImageShape, states);
 
 	target.draw(m_cardTitle, states);
-	target.draw(m_titleBounds_debug, states);
+	//target.draw(m_titleBounds_debug, states);
 
 	target.draw(m_cardDescription, states);
-	target.draw(m_descriptionBounds_debug, states);
+	//target.draw(m_descriptionBounds_debug, states);
 	
 	target.draw(m_cardPWR, states);
 	target.draw(m_cardDEF, states);

@@ -47,14 +47,18 @@ void load_cards(deque<CardBase*>& _deck, Font& _fontCardTitle, Font& _fontCardDa
 
 }
 
-void load_tokens(vector<CircleShape>& _p1tokens, vector<CircleShape>& _p2tokens)
+void fill_tokens(vector<CircleShape>& _p1tokens, vector<CircleShape>& _p2tokens)
 {
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 12; i++)
 	{
-		_p1tokens.push_back(CircleShape(25, 12));
+		_p1tokens.push_back(CircleShape(25, 13));
 		_p1tokens.at(i).setOutlineColor(Color::Red);
 		_p1tokens.at(i).setOutlineThickness(2);
-		_p1tokens.at(i).setFillColor({ 203, 76, 78, 170 });
+		_p1tokens.at(i).setFillColor({ 203, 76, 78, 255 });
+
+		_p2tokens.push_back(CircleShape(25, 13));
+		_p2tokens.at(i).setOutlineColor(Color::Cyan);
+		_p2tokens.at(i).setOutlineThickness(2);
+		_p2tokens.at(i).setFillColor({ 84, 175, 190, 255 });
 	}
-	_p2tokens = _p1tokens;
 }

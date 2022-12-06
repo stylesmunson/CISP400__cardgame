@@ -15,14 +15,13 @@ public:
 
 	virtual bool mouse_is_over(RenderWindow& _window);
 
-	int get_power() const;
-	int get_defense() const;
+	virtual int get_power() const;
+	virtual int get_defense() const;
 
 private:
 	Text m_cardPWR;
-	int m_PWRval;
-
 	Text m_cardDEF;
+	int m_PWRval;
 	int m_DEFval;
 
 	virtual void draw(RenderTarget& target, RenderStates states) const;

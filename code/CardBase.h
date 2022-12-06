@@ -13,6 +13,12 @@ public:
 	virtual FloatRect get_bounds() const = 0;
 	virtual string get_type() const = 0;
 
+	virtual int get_power() const;
+	virtual int get_defense() const;
+
+	virtual string get_effectType() const;
+	virtual int get_effectVal() const;
+
 	virtual void set_outline_color(Color _color) = 0;
 	virtual void set_position(Vector2f _pos) = 0;
 

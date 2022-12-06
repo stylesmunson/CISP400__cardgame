@@ -25,6 +25,8 @@ public:
 		m_buttonText.setCharacterSize(24);
 		m_buttonText.setOrigin(m_buttonText.getLocalBounds().left + m_buttonText.getLocalBounds().width / 2,
 			m_buttonText.getLocalBounds().top + m_buttonText.getLocalBounds().height);
+		m_buttonText.setPosition(m_buttonShape.getGlobalBounds().left + m_buttonShape.getGlobalBounds().width / 2,
+			m_buttonShape.getGlobalBounds().top + m_buttonShape.getGlobalBounds().height / 2);
 	}
 
 	//clickable text, no visible rectangle

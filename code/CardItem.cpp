@@ -17,24 +17,18 @@ CardItem::CardItem(string _title, string _effect, int _effectVal, string _descri
 	//DATA (ITEM EFFECT)
 	m_cardEffect.setCharacterSize(20);
 	m_cardEffect.setFillColor(Color::Black);
-	string effectInput;
-	for (int i = 0; i < _effect.size(); i++)
-	{
-		effectInput += tolower(_effect[i]);
-	}
+	m_effectType = _effect;
 
-	if (effectInput == "def")
+	if (m_effectType == "DEF")
 	{
 		m_effectVal = _effectVal;
 		m_cardEffectStr = "DEF + " + to_string(m_effectVal);
 	}
-	else if (effectInput == "pwr")
+	else if (m_effectType == "PWR")
 	{
 		m_effectVal = _effectVal;
 		m_cardEffectStr = "PWR + " + to_string(m_effectVal);
 	}
-	else if (effectInput == "skip")
-		m_cardEffectStr = "OPPONENT CAN'T PLAY ITEM";
 
 	m_cardEffect.setFont(_fontEffect);
 	m_cardEffect.setString(m_cardEffectStr);
@@ -76,6 +70,16 @@ string CardItem::get_type() const
 	return "item";
 }
 
+string CardItem::get_effectType() const
+{
+	return m_cardEffectStr;
+}
+
+int CardItem::get_effectVal() const
+{
+	return m_effectVal;
+}
+
 void CardItem::set_outline_color(Color _color)
 {
 	m_cardShape.setOutlineColor(_color);
@@ -105,10 +109,10 @@ void CardItem::draw(RenderTarget& target, RenderStates states) const
 	target.draw(m_cardImageShape, states);
 
 	target.draw(m_cardTitle, states);
-	target.draw(m_titleBounds_debug, states);
+	//target.draw(m_titleBounds_debug, states);
 
 	target.draw(m_cardDescription, states);
-	target.draw(m_descriptionBounds_debug, states);
+	//target.draw(m_descriptionBounds_debug, states);
 
 	target.draw(m_cardEffect, states);
 }
