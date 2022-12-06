@@ -76,10 +76,10 @@ public:
 
 		if (_p2battlers.size() == 2)
 		{
-			if (_p2battlers.at(1)->get_effectType() == "pwr")
+			if (_p2battlers.at(1)->get_effectType() == "PWR")
 				p1PWRtotal += _p2battlers.at(1)->get_effectVal();
 
-			else if (_p2battlers.at(1)->get_effectType() == "def")
+			else if (_p2battlers.at(1)->get_effectType() == "DEF")
 				p1DEFtotal += _p2battlers.at(1)->get_effectVal();
 		}
 
@@ -93,12 +93,7 @@ public:
 			return "TIE";
 
 		else if (p1PWRtotal > p2DEFtotal && p2PWRtotal > p1DEFtotal)
-		{
-			if (p1PWRtotal > p2PWRtotal)
-				return "P1 WIN";
-			else if (p2PWRtotal > p1PWRtotal)
-				return "P2 WIN";
-		}
+			return "TIE";
 	}
 
 private:
