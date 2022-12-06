@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 
+#include "RoundedRectangleShape.hpp"
 #include "GameFontsLoader.h"
 #include "CardBase.h"
 #include "CardMonster.h"

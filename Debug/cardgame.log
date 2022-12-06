@@ -1,23 +1,9 @@
-﻿  game.cpp
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(28,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(28,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(32,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(146,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(158,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(191,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(208,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(250,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(262,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(295,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(311,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\Button.h(80): warning C4715: 'Button::mouse_is_over': not all control paths return a value
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\BattleWindow.h(88): warning C4715: 'BattleWindow::battle_math': not all control paths return a value
+﻿  RoundedRectangleShape.cpp
+  Menu.cpp
+  GameScreen.cpp
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\GameScreen.cpp(37,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\GameScreen.cpp(86,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\GameScreen.cpp(90,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\GameScreen.cpp(97,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   cardgame.vcxproj -> C:\Users\Kezai\source\repos\stylesmunson\cardgame\Debug\cardgame.exe

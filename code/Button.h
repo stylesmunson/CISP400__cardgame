@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "RoundedRectangleShape.hpp"
 
 using std::string;
 using namespace sf;
