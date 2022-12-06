@@ -63,10 +63,10 @@ public:
 
 		if (_p1battlers.size() == 2)
 		{
-			if (_p1battlers.at(1)->get_effectType() == "pwr")
+			if (_p1battlers.at(1)->get_effectType() == "PWR")
 				p1PWRtotal += _p1battlers.at(1)->get_effectVal();
 
-			else if (_p1battlers.at(1)->get_effectType() == "def")
+			else if (_p1battlers.at(1)->get_effectType() == "DEF")
 				p1DEFtotal += _p1battlers.at(1)->get_effectVal();
 		}
 
@@ -99,6 +99,7 @@ public:
 		else if (p1PWRtotal > p2DEFtotal && p2PWRtotal > p1DEFtotal)
 			return "TIE";
 
+		//player 1 pwr less than p2 def, p2 pwr less than p1 def
 		else if (p1PWRtotal < p2DEFtotal && p2PWRtotal < p1DEFtotal)
 			return "BUNK";
 	}
