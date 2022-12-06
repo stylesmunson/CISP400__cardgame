@@ -78,13 +78,22 @@ public:
 		}
 
 		if (p1PWRtotal >= p2DEFtotal && p2PWRtotal < p1DEFtotal)
-			return "P1WIN";
+			return "P1 WIN";
 
 		else if (p1PWRtotal < p2DEFtotal && p2PWRtotal >= p1DEFtotal)
 			return "P2 WIN";
 
 		else if (p1PWRtotal == p2DEFtotal && p2PWRtotal == p1DEFtotal)
 			return "TIE";
+
+		else if (p1PWRtotal> p2DEFtotal && p2PWRtotal > p1DEFtotal)
+		{
+			if (p1PWRtotal > p2PWRtotal)
+				return "P1 WIN";
+			else if (p2PWRtotal > p1PWRtotal)
+				return "P2 WIN";
+
+		}
 	}
 
 private:

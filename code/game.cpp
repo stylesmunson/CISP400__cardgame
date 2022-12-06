@@ -366,9 +366,17 @@ int main()
 						{
 							string winner = battlewindow.battle_math(player1_battlezone, player2_battlezone);
 							if (winner == "P1 WIN")
+							{
 								player2_tokens.pop_back();
+								cout<< "player 1 tokens: "<< player1_tokens.size()<< endl;
+								cout<< "player 2 tokens: "<< player2_tokens.size()<< endl;
+							}
 							else if (winner == "P2 WIN")
+							{
 								player1_tokens.pop_back();
+								cout<< "player 1 tokens: "<< player1_tokens.size()<< endl;
+								cout<< "player 2 tokens: "<< player2_tokens.size()<< endl;
+							}
 							else if (winner == "TIE")
 							{
 								player1_tokens.pop_back();
