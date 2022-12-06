@@ -24,7 +24,8 @@ int main()
 	/*****************************/
 
 	//display setup
-	Vector2f resolution(1920, 1080);
+
+	Vector2f resolution(VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height);
 	RenderWindow window(VideoMode(resolution.x, resolution.y), "Card Battler Deluxe III Jr.", Style::Default);
 
 	Event event;
@@ -58,12 +59,23 @@ int main()
 	Menu menu(resolution.x, resolution.y, fonts.fontCardTitle, fonts.fontCardData);
 	GameScreen gamescreen(resolution.x, resolution.y, fonts.fontCardData);
 	BattleWindow battlewindow(resolution.x, resolution.y);
+	
+	Music music;
+	music.openFromFile("res/music/Rock song 1 (done i think).wav");
+
+	music.play();
+	music.setVolume(20.f);
+	music.setLoop(true);
+	
 
 	/*********************************/
 	/********** [GAME LOOP] **********/
 	/*********************************/
 	while (window.isOpen())
 	{
+
+
+
 		/********** [-MAIN MENU-] **********/
 		if (gamestate == GameState::MAINMENU)
 		{
