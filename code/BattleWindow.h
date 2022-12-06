@@ -38,12 +38,18 @@ public:
 		if (_p1battlers.size() == 1)								//monster but no item
 			_p1battlers.at(0)->setPosition(390, 200);
 		else if (_p1battlers.size() == 2)							//monster & item
+		{
+			_p1battlers.at(0)->setPosition(390, 200);
 			_p1battlers.at(1)->setPosition(390, 600);
+		}
 
 		if (_p2battlers.size() == 1)								//monster no item
 			_p2battlers.at(0)->setPosition(1400, 200);
 		else if (_p2battlers.size() == 2)							//monster & item
+		{
+			_p2battlers.at(0)->setPosition(1400, 200);
 			_p2battlers.at(1)->setPosition(1400, 600);
+		}
 	}
 
 	string battle_math(vector<CardBase*>& _p1battlers, vector<CardBase*>& _p2battlers)

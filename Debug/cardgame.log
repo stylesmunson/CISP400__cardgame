@@ -19,5 +19,5 @@ C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(274,25): warning
 C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(307,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\game.cpp(323,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\Button.h(81): warning C4715: 'Button::mouse_is_over': not all control paths return a value
-C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\BattleWindow.h(96): warning C4715: 'BattleWindow::battle_math': not all control paths return a value
+C:\Users\Kezai\source\repos\stylesmunson\cardgame\code\BattleWindow.h(102): warning C4715: 'BattleWindow::battle_math': not all control paths return a value
   cardgame.vcxproj -> C:\Users\Kezai\source\repos\stylesmunson\cardgame\Debug\cardgame.exe
