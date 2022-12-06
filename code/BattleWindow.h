@@ -83,17 +83,24 @@ public:
 				p1DEFtotal += _p2battlers.at(1)->get_effectVal();
 		}
 
+		//player 1 has more than or equal pwr than player 2's def
 		if (p1PWRtotal >= p2DEFtotal && p2PWRtotal < p1DEFtotal)
 			return "P1 WIN";
 
+		//player 2 has more than or equal pwr than player 1's def
 		else if (p1PWRtotal < p2DEFtotal && p2PWRtotal >= p1DEFtotal)
 			return "P2 WIN";
 
+		//player 1 has same pwr as p2's def, player 2 has same pwr as p1's pwr
 		else if (p1PWRtotal == p2DEFtotal && p2PWRtotal == p1DEFtotal)
 			return "TIE";
 
+		//player 1 has greater pwr than p2's def, player 2 has greater pwr than p1's def
 		else if (p1PWRtotal > p2DEFtotal && p2PWRtotal > p1DEFtotal)
 			return "TIE";
+
+		else if (p1PWRtotal < p2DEFtotal && p2PWRtotal < p1DEFtotal)
+			return "BUNK";
 	}
 
 private:
